@@ -1,5 +1,8 @@
 [<img src="https://github.com/magepow/themeforest/blob/master/shopify/shopify_affiliate.jpg" >](https://shopify.pxf.io/VyL446)
 
+# !!!! DISCLAIMER !!!!
+## This is originally the shopbrand extension of Magepow, I have just changed the name to shopfranchise so both of them could be installed together. I am not the original author of this extension. I have just changed the name of the extension to shopfranchise. No features have been added or removed.
+
 ## Magento 2 Shop by Franchise
 Magento 2 Shop by Franchise by Magepow is an extension that helps you build a franchiseed summary page of the products in your store. Allows you to sell by franchise, customers can easily shop by the franchise they like.
 ### Description
