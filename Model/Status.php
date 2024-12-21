@@ -10,7 +10,7 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Model;
+namespace Magiccart\Shopfranchise\Model;
 
 class Status
 {

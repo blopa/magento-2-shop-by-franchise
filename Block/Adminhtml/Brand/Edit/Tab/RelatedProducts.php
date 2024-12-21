@@ -9,7 +9,7 @@
  * @@Modify Date: 2016-03-24 13:36:41
  * @@Function:
  */
-namespace Magiccart\Shopbrand\Block\Adminhtml\Post\Edit\Tab;
+namespace Magiccart\Shopfranchise\Block\Adminhtml\Post\Edit\Tab;
 
 use Magento\Backend\Block\Widget\Grid\Column;
 
@@ -98,7 +98,7 @@ class RelatedProducts extends \Magento\Backend\Block\Widget\Grid\Extended  imple
      */
     public function getPost()
     {
-        return $this->_coreRegistry->registry('shopbrand');
+        return $this->_coreRegistry->registry('shopfranchise');
     }
 
     /**
@@ -327,7 +327,7 @@ class RelatedProducts extends \Magento\Backend\Block\Widget\Grid\Extended  imple
     public function getSelectedRelatedProducts()
     {
         $products = [];
-        foreach ($this->_coreRegistry->registry('shopbrand')->getRelatedProducts() as $product) {
+        foreach ($this->_coreRegistry->registry('shopfranchise')->getRelatedProducts() as $product) {
             $products[$product->getId()] = ['position' => $product->getPosition()];
         }
         return $products;

@@ -10,7 +10,7 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Adminhtml\Brand\Edit;
+namespace Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Edit;
 
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic

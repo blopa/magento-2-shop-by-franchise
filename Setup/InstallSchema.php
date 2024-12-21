@@ -10,7 +10,7 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Setup;
+namespace Magiccart\Shopfranchise\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -33,13 +33,13 @@ class InstallSchema implements InstallSchemaInterface
         $installer->startSetup();
 
         $table = $installer->getConnection()
-            ->newTable($installer->getTable('magiccart_shopbrand'))
+            ->newTable($installer->getTable('magiccart_shopfranchise'))
             ->addColumn(
-                'shopbrand_id',
+                'shopfranchise_id',
                 Table::TYPE_INTEGER,
                 null,
                 ['identity' => true, 'nullable' => false, 'primary' => true],
-                'Brand ID'
+                'Franchise ID'
             )
             ->addColumn('title', Table::TYPE_TEXT, 255, ['nullable' => false], 'Title')
             ->addColumn('urlkey', Table::TYPE_TEXT, 255, ['nullable' => true, 'default' => null])
@@ -52,8 +52,8 @@ class InstallSchema implements InstallSchemaInterface
             ->addColumn('description', Table::TYPE_TEXT, 255, ['nullable' => true, 'default' => null])
             ->addColumn('order', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Order')
             ->addColumn('status', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Status')
-            ->addIndex($installer->getIdxName('shopbrand_id', ['shopbrand_id']), ['shopbrand_id'])
-            ->setComment('Magiccart Shopbrand');
+            ->addIndex($installer->getIdxName('shopfranchise_id', ['shopfranchise_id']), ['shopfranchise_id'])
+            ->setComment('Magiccart Shopfranchise');
 
         $installer->getConnection()->createTable($table);
 

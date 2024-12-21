@@ -1,5 +1,5 @@
 <?php
-namespace Magiccart\Shopbrand\Controller\Brand;
+namespace Magiccart\Shopfranchise\Controller\Franchise;
 
 class View extends \Magento\Framework\App\Action\Action
 {

@@ -13,6 +13,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
     <update handle="formkey"/>
     <container name="root">
-        <block class="Magiccart\Shopbrand\Block\Adminhtml\Brand\Grid" name="admin.block.brand.grid"/>
+        <block class="Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Grid" name="admin.block.franchise.grid"/>
     </container>
 </layout>

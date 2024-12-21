@@ -1,13 +1,13 @@
 <?php
-	$brand = $this->getBrand();
-	if(!$brand) return;
+    $franchise = $this->getFranchise();
+    if(!$franchise) return;
 ?>
-<div class="brand">
-    <h3 class="title"><?php echo __('Brand') ?></h3>
-	<a href="<?php echo $this->getUrlBrand($brand) ?>">
-		<span><?php echo __($brand->getLabel()) ?></span>
-		<?php if($brand->getData('image')) : ?>
-		<img class="brand img-responsive" src="<?php /* @escapeNotVerified */ echo $this->getImage($brand)?>" alt="<?php /* @escapeNotVerified */ echo __($brand->getTitle()) ?>" title="<?php /* @escapeNotVerified */ echo __($brand->getTitle()) ?>" />
-		<?php endif ?>
-	</a>
+<div class="franchise">
+    <h3 class="title"><?php echo __('Franchise') ?></h3>
+    <a href="<?php echo $this->getUrlFranchise($franchise) ?>">
+        <span><?php echo __($franchise->getLabel()) ?></span>
+        <?php if($franchise->getData('image')) : ?>
+        <img class="franchise img-responsive" src="<?php /* @escapeNotVerified */ echo $this->getImage($franchise)?>" alt="<?php /* @escapeNotVerified */ echo __($franchise->getTitle()) ?>" title="<?php /* @escapeNotVerified */ echo __($franchise->getTitle()) ?>" />
+        <?php endif ?>
+    </a>
 </div>

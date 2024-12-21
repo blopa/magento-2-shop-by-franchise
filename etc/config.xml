@@ -11,14 +11,14 @@
  */ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <shopbrand>
+        <shopfranchise>
             <general>
                 <enabled>1</enabled>
-                <title>Brands</title>
-                <router>shopbrand</router>
+                <title>Franchises</title>
+                <router>shopfranchise</router>
                 <url_suffix>.html</url_suffix>
                 <topmenulink>1</topmenulink>
-                <attributeCode>manufacturer</attributeCode>
+                <attributeCode>franchise</attributeCode>
                 <page_layout>1column</page_layout>
                 <link>0</link>
                 <slide>1</slide>
@@ -41,7 +41,7 @@
                 <visible>6</visible>
             </general>
             <list_page_settings>
-                <title_sidebar_brand>Shop By Brand</title_sidebar_brand>
+                <title_sidebar_franchise>Shop By Franchise</title_sidebar_franchise>
                 <show_product_count>1</show_product_count>
                 <slide>0</slide>
                 <vertical>false</vertical>
@@ -62,8 +62,8 @@
                 <widescreen>6</widescreen>
                 <visible>6</visible>
             </list_page_settings>
-            <brand_page_settings>
-                <sidebar_shopbybrand>1</sidebar_shopbybrand>
+            <franchise_page_settings>
+                <sidebar_shopbyfranchise>1</sidebar_shopbyfranchise>
                 <mobile>1</mobile>
                 <portrait>2</portrait>
                 <landscape>3</landscape>
@@ -74,9 +74,9 @@
                 <widescreen>5</widescreen>
                 <visible>5</visible>
                 <padding>15</padding>
-            </brand_page_settings>
+            </franchise_page_settings>
             <product_page_settings>
-                <show_brand_logo>1</show_brand_logo>
+                <show_franchise_logo>1</show_franchise_logo>
             </product_page_settings>
             <product>
                 <!-- <enabled>1</enabled> -->
@@ -101,6 +101,6 @@
                 <widescreen>5</widescreen>
                 <visible>5</visible>
             </product>
-        </shopbrand>
+        </shopfranchise>
     </default>
 </config>

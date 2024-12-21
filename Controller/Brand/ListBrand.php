@@ -1,10 +1,10 @@
 <?php
 
-namespace Magiccart\Shopbrand\Controller\Brand;
+namespace Magiccart\Shopfranchise\Controller\Franchise;
 
 use Magento\Framework\App\Action\Action;
 
-class ListBrand extends Action
+class ListFranchise extends Action
 {
     protected $_pageFactory;
 

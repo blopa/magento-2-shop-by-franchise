@@ -1,5 +1,5 @@
 <?php
-namespace Magiccart\Shopbrand\Plugin;
+namespace Magiccart\Shopfranchise\Plugin;
 
 use Magento\Framework\Data\Tree\Node;
 
@@ -7,7 +7,7 @@ use Magento\Framework\Data\Tree\Node;
 class Topmenu
 {
     /**
-     * @var \Magiccart\Shopbrand\Helper\Data
+     * @var \Magiccart\Shopfranchise\Helper\Data
      */
     protected $helper;
 
@@ -24,14 +24,14 @@ class Topmenu
     /**
      * Topmenu constructor.
      *
-     * @param \Magiccart\Shopbrand\Helper\Data $helper
+     * @param \Magiccart\Shopfranchise\Helper\Data $helper
      * @param \Magento\Framework\Data\TreeFactory $treeFactory
      * @param \Magento\Framework\App\RequestInterface $request
      */
     public function __construct(
         \Magento\Framework\Data\TreeFactory $treeFactory,
         \Magento\Framework\App\RequestInterface $request,
-        \Magiccart\Shopbrand\Helper\Data $helper
+        \Magiccart\Shopfranchise\Helper\Data $helper
     ) {
         $this->treeFactory = $treeFactory;
         $this->request = $request;
@@ -56,7 +56,7 @@ class Topmenu
         if(!$this->helper->getConfigModule('general/enabled') || !$this->helper->getConfigModule('general/topmenulink')) return;
         $subject->getMenu()->addChild(
                 new Node(
-                    $this->getBrandMenu(),
+                    $this->getFranchiseMenu(),
                     'id',
                     $this->treeFactory->create()
                 )
@@ -67,11 +67,11 @@ class Topmenu
     /**
      * @return array
      */
-    private function getBrandMenu()
+    private function getFranchiseMenu()
     {
         return [
-            'name'       => __('Brand'),
-            'id'         => 'shopbrand-node',
+            'name'       => __('Franchise'),
+            'id'         => 'shopfranchise-node',
             'url'        => $this->helper->getUrlRouter()
         ];
     }

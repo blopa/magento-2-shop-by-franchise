@@ -10,12 +10,12 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Model\ResourceModel;
+namespace Magiccart\Shopfranchise\Model\ResourceModel;
 
-class Shopbrand extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
+class Shopfranchise extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     protected function _construct()
     {
-        $this->_init('magiccart_shopbrand', 'shopbrand_id');
+        $this->_init('magiccart_shopfranchise', 'shopfranchise_id');
     }
 }

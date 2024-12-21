@@ -7,7 +7,7 @@
  * @Last Modified time: 2020-12-25 09:17:05
  */
 
-namespace Magiccart\Shopbrand\Helper;
+namespace Magiccart\Shopfranchise\Helper;
 
 class Alothemes extends Data
 {

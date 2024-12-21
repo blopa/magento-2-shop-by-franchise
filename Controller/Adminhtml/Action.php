@@ -1,16 +1,16 @@
 <?php
 /**
  * Magiccart 
- * @category 	Magiccart 
- * @copyright 	Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
- * @license 	http://www.magiccart.net/license-agreement.html
+ * @category     Magiccart 
+ * @copyright     Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
+ * @license     http://www.magiccart.net/license-agreement.html
  * @Author: DOng NGuyen<nguyen@dvn.com>
  * @@Create Date: 2016-01-05 10:40:51
  * @@Modify Date: 2016-06-08 14:41:14
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml;
 
 abstract class Action extends \Magento\Backend\App\Action
 {
@@ -38,15 +38,15 @@ abstract class Action extends \Magento\Backend\App\Action
      */
     protected $_resultPageFactory;
 
-    protected $_shopbrandFactory;
+    protected $_shopfranchiseFactory;
 
-    protected $_shopbrandCollectionFactory;
+    protected $_shopfranchiseCollectionFactory;
 
     /**
      * Model class name
      * @var string
      */
-    // protected $_modelClass      = 'Magiccart\Shopbrand\Model\Shopbrand';
+    // protected $_modelClass      = 'Magiccart\Shopfranchise\Model\Shopfranchise';
 
     /**
      * Registry object.
@@ -64,8 +64,8 @@ abstract class Action extends \Magento\Backend\App\Action
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magiccart\Shopbrand\Model\ShopbrandFactory $shopbrandFactory,
-        \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand\CollectionFactory $shopbrandCollectionFactory,
+        \Magiccart\Shopfranchise\Model\ShopfranchiseFactory $shopfranchiseFactory,
+        \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise\CollectionFactory $shopfranchiseCollectionFactory,
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Framework\App\Response\Http\FileFactory $fileFactory,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
@@ -81,10 +81,10 @@ abstract class Action extends \Magento\Backend\App\Action
         $this->_resultPageFactory = $resultPageFactory;
         $this->_resultLayoutFactory = $resultLayoutFactory;
         $this->_resultForwardFactory = $resultForwardFactory;
-		$this->resultRedirectFactory = $context->getResultRedirectFactory();
-		
-        $this->_shopbrandFactory = $shopbrandFactory;
-        $this->_shopbrandCollectionFactory = $shopbrandCollectionFactory;
+        $this->resultRedirectFactory = $context->getResultRedirectFactory();
+        
+        $this->_shopfranchiseFactory = $shopfranchiseFactory;
+        $this->_shopfranchiseCollectionFactory = $shopfranchiseCollectionFactory;
     }
 
     protected function _isAllowed()
@@ -93,6 +93,6 @@ abstract class Action extends \Magento\Backend\App\Action
         $string = strtolower(str_replace(__NAMESPACE__ . '\\','', (string) $namespace));
         $action =  explode('\\', (string) $string);
         $action =  array_shift($action);
-        return $this->_authorization->isAllowed("Magiccart_Shopbrand::shopbrand_$action");
+        return $this->_authorization->isAllowed("Magiccart_Shopfranchise::shopfranchise_$action");
     }
 }

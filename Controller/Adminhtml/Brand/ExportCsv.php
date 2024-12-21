@@ -10,19 +10,19 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class ExportCsv extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class ExportCsv extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     public function execute()
     {
-        $fileName = 'brands.csv';
+        $fileName = 'franchises.csv';
 
         /** @var \\Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->_resultPageFactory->create();
-        $content = $resultPage->getLayout()->createBlock('Magiccart\Shopbrand\Block\Adminhtml\Brand\Grid')->getCsv();
+        $content = $resultPage->getLayout()->createBlock('Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Grid')->getCsv();
 
         return $this->_fileFactory->create($fileName, $content, DirectoryList::VAR_DIR);
     }

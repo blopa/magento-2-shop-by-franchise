@@ -10,18 +10,18 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Block\Adminhtml\Franchise;
 
-use Magiccart\Shopbrand\Model\Status;
+use Magiccart\Shopfranchise\Model\Status;
 
 class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
 {
     /**
-     * shopbrand collection factory.
+     * shopfranchise collection factory.
      *
-     * @var \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand\CollectionFactory
+     * @var \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise\CollectionFactory
      */
-    protected $_shopbrandCollectionFactory;
+    protected $_shopfranchiseCollectionFactory;
 
 
     /**
@@ -29,17 +29,17 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      *
      * @param \Magento\Backend\Block\Template\Context                         $context
      * @param \Magento\Backend\Helper\Data                                    $backendHelper
-     * @param \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand\CollectionFactory $shopbrandCollectionFactory
+     * @param \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise\CollectionFactory $shopfranchiseCollectionFactory
      * @param array                                                           $data
      */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
-        \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand\CollectionFactory $shopbrandCollectionFactory,
+        \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise\CollectionFactory $shopfranchiseCollectionFactory,
     
         array $data = []
     ) {
-        $this->_shopbrandCollectionFactory = $shopbrandCollectionFactory;
+        $this->_shopfranchiseCollectionFactory = $shopfranchiseCollectionFactory;
 
         parent::__construct($context, $backendHelper, $data);
     }
@@ -47,8 +47,8 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     protected function _construct()
     {
         parent::_construct();
-        $this->setId('shopbrandGrid');
-        $this->setDefaultSort('shopbrand_id');
+        $this->setId('shopfranchiseGrid');
+        $this->setDefaultSort('shopfranchise_id');
         $this->setDefaultDir('ASC');
         $this->setSaveParametersInSession(true);
         $this->setUseAjax(true);
@@ -57,7 +57,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     protected function _prepareCollection()
     {
         $store = $this->getRequest()->getParam('store');
-        $collection = $this->_shopbrandCollectionFactory->create();
+        $collection = $this->_shopfranchiseCollectionFactory->create();
         if($store) $collection->addFieldToFilter('stores',array( array('finset' => 0), array('finset' => $store)));
         $this->setCollection($collection);
 
@@ -70,11 +70,11 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     protected function _prepareColumns()
     {
         // $this->addColumn(
-        //     'shopbrand_id',
+        //     'shopfranchise_id',
         //     [
-        //         'header' => __('Shopbrand ID'),
+        //         'header' => __('Shopfranchise ID'),
         //         'type' => 'number',
-        //         'index' => 'shopbrand_id',
+        //         'index' => 'shopfranchise_id',
         //         'header_css_class' => 'col-id',
         //         'column_css_class' => 'col-id',
         //     ]
@@ -109,7 +109,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                 'class' => 'xxx',
                 'width' => '50px',
                 'filter' => false,
-                'renderer' => 'Magiccart\Shopbrand\Block\Adminhtml\Helper\Renderer\Grid\Image',
+                'renderer' => 'Magiccart\Shopfranchise\Block\Adminhtml\Helper\Renderer\Grid\Image',
             ]
         );
 
@@ -159,7 +159,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                     [
                         'caption' => __('Edit'),
                         'url' => ['base' => '*/*/edit'],
-                        'field' => 'shopbrand_id',
+                        'field' => 'shopfranchise_id',
                     ],
                 ],
                 'filter' => false,
@@ -177,7 +177,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     }
 
     /**
-     * get brand vailable option
+     * get franchise vailable option
      *
      * @return array
      */
@@ -187,14 +187,14 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     protected function _prepareMassaction()
     {
-        $this->setMassactionIdField('shopbrand_id');
-        $this->getMassactionBlock()->setFormFieldName('shopbrand');
+        $this->setMassactionIdField('shopfranchise_id');
+        $this->getMassactionBlock()->setFormFieldName('shopfranchise');
 
         $this->getMassactionBlock()->addItem(
             'delete',
             [
                 'label' => __('Delete'),
-                'url' => $this->getUrl('shopbrand/*/massDelete'),
+                'url' => $this->getUrl('shopfranchise/*/massDelete'),
                 'confirm' => __('Are you sure?'),
             ]
         );
@@ -206,7 +206,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
             'status',
             [
                 'label' => __('Change status'),
-                'url' => $this->getUrl('shopbrand/*/massStatus', ['_current' => true]),
+                'url' => $this->getUrl('shopfranchise/*/massStatus', ['_current' => true]),
                 'additional' => [
                     'visibility' => [
                         'name' => 'status',
@@ -239,7 +239,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     {
         return $this->getUrl(
             '*/*/edit',
-            ['shopbrand_id' => $row->getId()]
+            ['shopfranchise_id' => $row->getId()]
         );
     }
 }

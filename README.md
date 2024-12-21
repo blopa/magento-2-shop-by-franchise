@@ -1,55 +1,55 @@
 [<img src="https://github.com/magepow/themeforest/blob/master/shopify/shopify_affiliate.jpg" >](https://shopify.pxf.io/VyL446)
 
-## Magento 2 Shop by Brand
-Magento 2 Shop by Brand by Magepow is an extension that helps you build a branded summary page of the products in your store. Allows you to sell by brand, customers can easily shop by the brand they like.
+## Magento 2 Shop by Franchise
+Magento 2 Shop by Franchise by Magepow is an extension that helps you build a franchiseed summary page of the products in your store. Allows you to sell by franchise, customers can easily shop by the franchise they like.
 ### Description
-Your online store is selling many products from different brands. You want to build a page to introduce and synthesize these brands, want to sell by brand so that customers can easily find and shop products by their favorite brand, Magento 2 Shop by Brand Our extension will help you make this a reality.
+Your online store is selling many products from different franchises. You want to build a page to introduce and synthesize these franchises, want to sell by franchise so that customers can easily find and shop products by their favorite franchise, Magento 2 Shop by Franchise Our extension will help you make this a reality.
 ### Highlight Features
-#### 1. Brand List Page
-Brand List Page helps customers shop by brand easily when it includes:
-- Brand search box
-- Featured brand slides
-- Filter brands by alphabet
+#### 1. Franchise List Page
+Franchise List Page helps customers shop by franchise easily when it includes:
+- Franchise search box
+- Featured franchise slides
+- Filter franchises by alphabet
 
-![Magento 2 Shop by Brand](https://github.com/magepow/magento-2-shop-by-brand/blob/master/media/shop-by-brand-1.png)
-#### 2. Show brand logo in product page
-Display the brand logo in the specified product page, helping your customers to know which brand your product comes from.
-Magento 2 Shop by Brand supports all types of products: simple, downloadable, configurable, virtual, bundle, gift card.
-Available products can be easily branded in the product edit page.
+![Magento 2 Shop by Franchise](https://github.com/magepow/magento-2-shop-by-franchise/blob/master/media/shop-by-franchise-1.png)
+#### 2. Show franchise logo in product page
+Display the franchise logo in the specified product page, helping your customers to know which franchise your product comes from.
+Magento 2 Shop by Franchise supports all types of products: simple, downloadable, configurable, virtual, bundle, gift card.
+Available products can be easily franchiseed in the product edit page.
 
-![Magento 2 Shop by Brand](https://github.com/magepow/magento-2-shop-by-brand/blob/master/media/shop-by-brand-2.png)
-#### 3. Add The Brand Widget
-Insert featured brand anywhere easily with The Brand Widget in cms block, cms page.
-#### 4. Add Brand Link to Top Menu
-It is easy to insert featured brands into the menu.
+![Magento 2 Shop by Franchise](https://github.com/magepow/magento-2-shop-by-franchise/blob/master/media/shop-by-franchise-2.png)
+#### 3. Add The Franchise Widget
+Insert featured franchise anywhere easily with The Franchise Widget in cms block, cms page.
+#### 4. Add Franchise Link to Top Menu
+It is easy to insert featured franchises into the menu.
 
-![Magento 2 Shop by Brand](https://github.com/magepow/magento-2-shop-by-brand/blob/master/media/shop-by-brand-5.png)
-#### 5. List Product When Click By Brand
-Clicking on a brand anywhere on your website will take you to that brand's Brand Detail Page, which displays all your products under that brand.
+![Magento 2 Shop by Franchise](https://github.com/magepow/magento-2-shop-by-franchise/blob/master/media/shop-by-franchise-5.png)
+#### 5. List Product When Click By Franchise
+Clicking on a franchise anywhere on your website will take you to that franchise's Franchise Detail Page, which displays all your products under that franchise.
 
-![Magento 2 Shop by Brand](https://github.com/magepow/magento-2-shop-by-brand/blob/master/media/shop-by-brand-7.gif)
-#### 6. Sidebar Shop by Brand
-Display Brand On Sidebar
+![Magento 2 Shop by Franchise](https://github.com/magepow/magento-2-shop-by-franchise/blob/master/media/shop-by-franchise-7.gif)
+#### 6. Sidebar Shop by Franchise
+Display Franchise On Sidebar
 
-![Magento 2 Shop by Brand](https://github.com/magepow/magento-2-shop-by-brand/blob/master/media/shop-by-brand-4.png)
+![Magento 2 Shop by Franchise](https://github.com/magepow/magento-2-shop-by-franchise/blob/master/media/shop-by-franchise-4.png)
 
-Download the latest version at [Magento 2 Shop by Brand]()
+Download the latest version at [Magento 2 Shop by Franchise]()
 
-## How to install Magento 2 Shop By Brand
-### ✓ Install Magiccart Shop By Brand via composer (recommend)
+## How to install Magento 2 Shop By Franchise
+### ✓ Install Magiccart Shop By Franchise via composer (recommend)
 Run the following command in Magento 2 root folder:
 
 ```
-composer require magiccart/shopbrand
+composer require magiccart/shopfranchise
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy -f
 ```
-[![Latest Stable Version](https://poser.pugx.org/magiccart/shopbrand/v/stable)](https://packagist.org/packages/magiccart/shopbrand)
-[![Total Downloads](https://poser.pugx.org/magiccart/shopbrand/downloads)](https://packagist.org/packages/magiccart/shopbrand)
-[![Daily Downloads](https://poser.pugx.org/magiccart/shopbrand/d/daily)](https://packagist.org/packages/magiccart/shopbrand)
+[![Latest Stable Version](https://poser.pugx.org/magiccart/shopfranchise/v/stable)](https://packagist.org/packages/magiccart/shopfranchise)
+[![Total Downloads](https://poser.pugx.org/magiccart/shopfranchise/downloads)](https://packagist.org/packages/magiccart/shopfranchise)
+[![Daily Downloads](https://poser.pugx.org/magiccart/shopfranchise/d/daily)](https://packagist.org/packages/magiccart/shopfranchise)
 
 ### Detail User Guide
-* [User Guide Extension](https://docs.alothemes.com/m2/extension/shopbrand/)
+* [User Guide Extension](https://docs.alothemes.com/m2/extension/shopfranchise/)
 
 ### Donation
 

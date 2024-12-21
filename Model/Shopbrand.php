@@ -10,9 +10,9 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Model;
+namespace Magiccart\Shopfranchise\Model;
 
-class Shopbrand extends \Magento\Framework\Model\AbstractModel
+class Shopfranchise extends \Magento\Framework\Model\AbstractModel
 {
     /**
      * @var \Magento\Catalog\Model\Product\Visibility
@@ -25,15 +25,15 @@ class Shopbrand extends \Magento\Framework\Model\AbstractModel
     protected $_productCollectionFactory;
 
     /**
-     * @var \Magiccart\Shopbrand\Helper\Data
+     * @var \Magiccart\Shopfranchise\Helper\Data
      */
     protected $_helper;
 
     /**
-     * @var \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand\CollectionFactory
+     * @var \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise\CollectionFactory
      */
 
-    protected $_shopbrandCollectionFactory;
+    protected $_shopfranchiseCollectionFactory;
 
     public function __construct(
         \Magento\Framework\Model\Context $context,
@@ -41,10 +41,10 @@ class Shopbrand extends \Magento\Framework\Model\AbstractModel
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Catalog\Model\Product\Visibility $catalogProductVisibility,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
-        \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand\CollectionFactory $shopbrandCollectionFactory,
-        \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand $resource,
-        \Magiccart\Shopbrand\Model\ResourceModel\Shopbrand\Collection $resourceCollection,
-        \Magiccart\Shopbrand\Helper\Data $helper
+        \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise\CollectionFactory $shopfranchiseCollectionFactory,
+        \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise $resource,
+        \Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise\Collection $resourceCollection,
+        \Magiccart\Shopfranchise\Helper\Data $helper
     ) {
         parent::__construct(
             $context,
@@ -56,7 +56,7 @@ class Shopbrand extends \Magento\Framework\Model\AbstractModel
         $this->_catalogProductVisibility = $catalogProductVisibility;
 
         $this->_helper = $helper;
-        $this->_shopbrandCollectionFactory = $shopbrandCollectionFactory;
+        $this->_shopfranchiseCollectionFactory = $shopfranchiseCollectionFactory;
     }
     /**
      * Constructor
@@ -66,7 +66,7 @@ class Shopbrand extends \Magento\Framework\Model\AbstractModel
     protected function _construct()
     {
         parent::_construct();
-        $this->_init('Magiccart\Shopbrand\Model\ResourceModel\Shopbrand');
+        $this->_init('Magiccart\Shopfranchise\Model\ResourceModel\Shopfranchise');
     }
     /**
      * Retrieve post related products

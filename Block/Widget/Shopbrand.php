@@ -7,9 +7,9 @@
  * @Last Modified time: 2021-05-17 14:57:30
  */
 
-namespace Magiccart\Shopbrand\Block\Widget;
+namespace Magiccart\Shopfranchise\Block\Widget;
 
-class Shopbrand extends Brand
+class Shopfranchise extends Franchise
 {
 
     protected $_types;
@@ -20,8 +20,8 @@ class Shopbrand extends Brand
     public function getTabActivated()
     {
         if($this->hasData('activated')) return $this->getData('activated');
-        $activated = $this->getBrands()->getFirstItem();
-        // $shopbrandId = $activated->getShopbrandId();
+        $activated = $this->getFranchises()->getFirstItem();
+        // $shopfranchiseId = $activated->getShopfranchiseId();
         $optionId = $activated->getData('option_id');
         if(!$optionId) return 0;
         $this->setData('activated', $optionId);
@@ -82,9 +82,9 @@ class Shopbrand extends Brand
     public function getContent($template)
     {
         $content = '';
-        $tabs = ($this->getProductCfg('ajax')) ? $tabs = array($this->getTabActivated() => 'Activated') : $this->getBrands();
+        $tabs = ($this->getProductCfg('ajax')) ? $tabs = array($this->getTabActivated() => 'Activated') : $this->getFranchises();
         foreach ($tabs as $type => $name) {
-            $content .= $this->getLayout()->createBlock('Magiccart\Shopbrand\Block\Product\GridProduct') // , "magicproduct.product.$type"
+            $content .= $this->getLayout()->createBlock('Magiccart\Shopfranchise\Block\Product\GridProduct') // , "magicproduct.product.$type"
             ->setActivated($type) //or ->setData('activated', $this->getTabActivated())
             ->setCfg($this->getProductCfg())
             ->setTemplate($template)

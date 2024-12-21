@@ -10,16 +10,16 @@
  * @@Function:
  */ -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-	<body>
-		<referenceContainer name="content">
-<!-- 			<referenceContainer name="product.info.main">
-				<block class="Magiccart\Shopbrand\Block\Product\View" ifconfig="shopbrand/product_page_settings/show_brand_logo" name="product.info.shopbrand" after="product.info.price" template="Magiccart_Shopbrand::product/view/logo.phtml" />
-			</referenceContainer> -->
+    <body>
+        <referenceContainer name="content">
+<!--             <referenceContainer name="product.info.main">
+                <block class="Magiccart\Shopfranchise\Block\Product\View" ifconfig="shopfranchise/product_page_settings/show_franchise_logo" name="product.info.shopfranchise" after="product.info.price" template="Magiccart_Shopfranchise::product/view/logo.phtml" />
+            </referenceContainer> -->
 
-			<referenceContainer name="page.main.title">
-				<block class="Magiccart\Shopbrand\Block\Product\View" ifconfig="shopbrand/product_page_settings/show_brand_logo" name="product.info.shopbrand" after="page.title" template="Magiccart_Shopbrand::product/view/logo.phtml" />
-			</referenceContainer>
-			
-		</referenceContainer>
-	</body>
+            <referenceContainer name="page.main.title">
+                <block class="Magiccart\Shopfranchise\Block\Product\View" ifconfig="shopfranchise/product_page_settings/show_franchise_logo" name="product.info.shopfranchise" after="page.title" template="Magiccart_Shopfranchise::product/view/logo.phtml" />
+            </referenceContainer>
+
+        </referenceContainer>
+    </body>
 </page>

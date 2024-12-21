@@ -10,23 +10,23 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
-class Edit extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class Edit extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParam('shopbrand_id');
+        $id = $this->getRequest()->getParam('shopfranchise_id');
         $storeViewId = $this->getRequest()->getParam('store');
-        $model = $this->_shopbrandFactory->create();
+        $model = $this->_shopfranchiseFactory->create();
 
         if ($id) {
             $model->setStoreViewId($storeViewId)->load($id);
             if (!$model->getId()) {
-                $this->messageManager->addError(__('This Brand no longer exists.'));
+                $this->messageManager->addError(__('This Franchise no longer exists.'));
                 $resultRedirect = $this->resultRedirectFactory->create();
 
                 return $resultRedirect->setPath('*/*/');
@@ -38,7 +38,7 @@ class Edit extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
             $model->setData($data);
         }
 
-        $this->_coreRegistry->register('shopbrand', $model);
+        $this->_coreRegistry->register('shopfranchise', $model);
 
         $resultPage = $this->_resultPageFactory->create();
 

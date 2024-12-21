@@ -10,7 +10,7 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Product;
+namespace Magiccart\Shopfranchise\Block\Product;
 
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 
@@ -77,10 +77,10 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
     protected $_stockFilter;
 
     /**
-     * [$_brandFactory description]
-     * @var \Magiccart\Shopbrand\Model\ShopbrandFactory 
+     * [$_franchiseFactory description]
+     * @var \Magiccart\Shopfranchise\Model\ShopfranchiseFactory 
      */
-    protected $_brandFactory;
+    protected $_franchiseFactory;
     /**
      * [$_limit description]
      * @var [type]
@@ -110,8 +110,8 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
         CategoryRepositoryInterface $categoryRepository,
         \Magento\Framework\Url\Helper\Data $urlHelper,
         \Magento\Eav\Model\Config $eavConfig,
-        \Magiccart\Shopbrand\Model\ShopbrandFactory $brandFactory,
-        \Magiccart\Shopbrand\Helper\Data $helperData,
+        \Magiccart\Shopfranchise\Model\ShopfranchiseFactory $franchiseFactory,
+        \Magiccart\Shopfranchise\Helper\Data $helperData,
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
         \Magento\Catalog\Model\Product\Visibility $catalogProductVisibility,
@@ -123,7 +123,7 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
         $this->_postDataHelper = $postDataHelper;
         $this->categoryRepository = $categoryRepository;
         $this->urlHelper = $urlHelper;
-        $this->_brandFactory = $brandFactory;
+        $this->_franchiseFactory = $franchiseFactory;
         $this->_helperData = $helperData;
         $this->_eavConfig = $eavConfig;
         $this->_objectManager = $objectManager;
@@ -137,8 +137,8 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
 
     public function getType()
     {   
-        $brandId = $this->getRequest()->getParam('id', 0);
-        $option_id = $this->_brandFactory->create()->load($brandId);
+        $franchiseId = $this->getRequest()->getParam('id', 0);
+        $option_id = $this->_franchiseFactory->create()->load($franchiseId);
         return $option_id;
     }
 
@@ -159,8 +159,8 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
     {
         if (is_null($this->_productCollection)) {
 
-            $brand = $this->getType()->getData('option_id');
-            $collection = $this->getBrandProducts($brand);
+            $franchise = $this->getType()->getData('option_id');
+            $collection = $this->getFranchiseProducts($franchise);
 
             if ($this->_stockConfig->isShowOutOfStock() != 1) {
                 $this->_stockFilter->addInStockFilterToCollection($collection);
@@ -178,13 +178,13 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
         return $this->_productCollection->setCurPage($page);
     }
 
-    public function getBrandProducts($brand)
+    public function getFranchiseProducts($franchise)
     {   
         $attributeCode = $this->_helperData->getConfigModule('general/attributeCode');
         $this->_limit = $this->getWidgetCfg('limit');
         $collection = $this->_productCollectionFactory->create();
         $collection->setVisibility($this->_catalogProductVisibility->getVisibleInCatalogIds());
-        $collection->addAttributeToFilter($attributeCode, $brand)
+        $collection->addAttributeToFilter($attributeCode, $franchise)
                     ->addStoreFilter()
                     ->addAttributeToSelect('*')
                     ->addMinimalPrice()

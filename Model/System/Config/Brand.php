@@ -10,9 +10,9 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Model\System\Config;
+namespace Magiccart\Shopfranchise\Model\System\Config;
 
-class Brand implements \Magento\Framework\Option\ArrayInterface
+class Franchise implements \Magento\Framework\Option\ArrayInterface
 {
 
     protected $_scopeConfig;
@@ -30,7 +30,7 @@ class Brand implements \Magento\Framework\Option\ArrayInterface
     {
         $this->_productAttributeRepository = $productAttributeRepository;
         $this->_scopeConfig= (object) $scopeConfig->getValue(
-            'shopbrand',
+            'shopfranchise',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }
@@ -41,9 +41,9 @@ class Brand implements \Magento\Framework\Option\ArrayInterface
             $options = array();
             $cfg = $this->_scopeConfig->general;
             if(isset($cfg['attributeCode'])){
-                $brands = $this->_productAttributeRepository->get($cfg['attributeCode'])->getOptions();
-                foreach ($brands as $brand) {
-                    $options[$brand->getValue()] = $brand->getLabel();
+                $franchises = $this->_productAttributeRepository->get($cfg['attributeCode'])->getOptions();
+                foreach ($franchises as $franchise) {
+                    $options[$franchise->getValue()] = $franchise->getLabel();
                 }
             }
             $this->_options = $options;

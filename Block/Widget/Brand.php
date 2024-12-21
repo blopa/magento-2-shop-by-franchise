@@ -10,12 +10,12 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Widget;
+namespace Magiccart\Shopfranchise\Block\Widget;
 // use Magento\Framework\App\Filesystem\DirectoryList;
 
-class Brand extends \Magiccart\Shopbrand\Block\Brand implements \Magento\Widget\Block\BlockInterface, \Magento\Framework\DataObject\IdentityInterface
+class Franchise extends \Magiccart\Shopfranchise\Block\Franchise implements \Magento\Widget\Block\BlockInterface, \Magento\Framework\DataObject\IdentityInterface
 {
-    const DEFAULT_CACHE_TAG = 'MAGICCART_BRAND_WIDGET';
+    const DEFAULT_CACHE_TAG = 'MAGICCART_FRANCHISE_WIDGET';
 
     protected function _construct()
     {
@@ -66,14 +66,14 @@ class Brand extends \Magiccart\Shopbrand\Block\Brand implements \Magento\Widget\
         return [self::DEFAULT_CACHE_TAG, self::DEFAULT_CACHE_TAG . '_' . $this->_storeManager->getStore()->getStoreId()];
     }
 
-    public function getBrands()
+    public function getFranchises()
     {
-        return $this->getBrandCollection();
+        return $this->getFranchiseCollection();
     }
 
-    public function getUrlBrand($brand)
+    public function getUrlFranchise($franchise)
     { 
-        return $this->_helper->getLinkBrand($brand);
+        return $this->_helper->getLinkFranchise($franchise);
     }
 
 }

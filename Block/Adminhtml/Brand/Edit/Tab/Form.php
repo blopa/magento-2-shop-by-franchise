@@ -10,9 +10,9 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Adminhtml\Brand\Edit\Tab;
+namespace Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Edit\Tab;
 
-use Magiccart\Shopbrand\Model\Status;
+use Magiccart\Shopfranchise\Model\Status;
 class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
     /**
@@ -23,15 +23,15 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     /**
      * @var \Magento\Catalog\Model\Category\Attribute\Source\Page
      */    
-    protected $_brand;
+    protected $_franchise;
 
     /**
-     * @var \Magiccart\Shopbrand\Model\Shopbrand
+     * @var \Magiccart\Shopfranchise\Model\Shopfranchise
      */
-    protected $_shopbrand;
+    protected $_shopfranchise;
 
     /**
-     * @var \Magiccart\Shopbrand\Helper\Data
+     * @var \Magiccart\Shopfranchise\Helper\Data
      */
     protected $_helper;
 
@@ -52,14 +52,14 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         \Magento\Framework\DataObjectFactory $objectFactory,
         \Magento\Store\Model\System\Store $systemStore,
         \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig,
-        \Magiccart\Shopbrand\Model\Shopbrand $shopbrand,
-        \Magiccart\Shopbrand\Model\System\Config\Brand $brand,
-        \Magiccart\Shopbrand\Helper\Data $helper,
+        \Magiccart\Shopfranchise\Model\Shopfranchise $shopfranchise,
+        \Magiccart\Shopfranchise\Model\System\Config\Franchise $franchise,
+        \Magiccart\Shopfranchise\Helper\Data $helper,
         array $data = []
     ) {
         $this->_objectFactory = $objectFactory;
-        $this->_shopbrand = $shopbrand;
-        $this->_brand   = $brand;
+        $this->_shopfranchise = $shopfranchise;
+        $this->_franchise   = $franchise;
         $this->_helper  = $helper;
         $this->_systemStore = $systemStore;
         $this->_wysiwygConfig = $wysiwygConfig;
@@ -84,17 +84,17 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      */
     protected function _prepareForm()
     {
-        $model = $this->_coreRegistry->registry('shopbrand');
+        $model = $this->_coreRegistry->registry('shopfranchise');
 
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
 
         $form->setHtmlIdPrefix('magic_');
 
-        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Brand Information')]);
+        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Franchise Information')]);
 
         if ($model->getId()) {
-            $fieldset->addField('shopbrand_id', 'hidden', ['name' => 'shopbrand_id']);
+            $fieldset->addField('shopfranchise_id', 'hidden', ['name' => 'shopfranchise_id']);
         }
 
         $fieldset->addField('title', 'text',
@@ -135,22 +135,22 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         //     ]
         // );
 
-        $brandOptions = $this->_brand->toOptionArray();
-        if(array_filter($brandOptions)){
+        $franchiseOptions = $this->_franchise->toOptionArray();
+        if(array_filter($franchiseOptions)){
             $fieldset->addField('option_id', 'select',
                 [
-                    'label' => __('Brand'),
-                    'title' => __('Brand'),
+                    'label' => __('Franchise'),
+                    'title' => __('Franchise'),
                     'name' => 'option_id',
-                    'options' => $this->_brand->toOptionArray(),
+                    'options' => $this->_franchise->toOptionArray(),
                 ]
             );
         }
 
         $fieldset->addField('image', 'image',
             [
-                'label' => __('Brand Logo'),
-                'title' => __('Brand Logo'),
+                'label' => __('Franchise Logo'),
+                'title' => __('Franchise Logo'),
                 'name'  => 'image',
                 'required' => true,
             ]
@@ -210,9 +210,9 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     /**
      * @return mixed
      */
-    public function getShopbrand()
+    public function getShopfranchise()
     {
-        return $this->_coreRegistry->registry('shopbrand');
+        return $this->_coreRegistry->registry('shopfranchise');
     }
 
     /**
@@ -220,8 +220,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      */
     public function getPageTitle()
     {
-        return $this->getShopbrand()->getId()
-            ? __("Edit Brand '%1'", $this->escapeHtml($this->getShopbrand()->getTitle())) : __('New Brand');
+        return $this->getShopfranchise()->getId()
+            ? __("Edit Franchise '%1'", $this->escapeHtml($this->getShopfranchise()->getTitle())) : __('New Franchise');
     }
 
     /**

@@ -7,7 +7,7 @@
  * @Last Modified time: 2021-08-04 14:06:03
  */
 
-namespace Magiccart\Shopbrand\Model\System\Config;
+namespace Magiccart\Shopfranchise\Model\System\Config;
 
 class Attribute implements \Magento\Framework\Option\ArrayInterface
 {
@@ -26,7 +26,7 @@ class Attribute implements \Magento\Framework\Option\ArrayInterface
 
     public function toOptionArray()
     {
-        $options = array('' => __('Choose brand attribute'));
+        $options = array('' => __('Choose franchise attribute'));
         $collection = $this->_collectionFactory->create()
                         ->addFieldToFilter('frontend_input', ['select', 'multiselect'])
                         ->addVisibleFilter();

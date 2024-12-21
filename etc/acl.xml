@@ -11,22 +11,22 @@
  */ -->
  
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
-	<acl>
-	    <resources>
-	        <resource id="Magento_Backend::admin">
-	        	<resource id="Magiccart_Shopbrand::magiccart" title="Magiccart" sortOrder="10">
-	        	    <resource id="Magiccart_Shopbrand::shopbrand" title="Shop Brand" sortOrder="10">
-	        	        <resource id="Magiccart_Shopbrand::shopbrand_brand" title="Brand" sortOrder="10" />
-	        	    </resource>
-	        	</resource>
-	            <resource id="Magento_Backend::stores">
-	                <resource id="Magento_Backend::stores_settings">
-	                    <resource id="Magento_Config::config">
-	                        <resource id="Magiccart_Shopbrand::config_shopbrand" title="Shop Brand" />
-	                    </resource>
-	                </resource>
-	            </resource>
-	        </resource>
-	    </resources>
-	</acl>
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magiccart_Shopfranchise::magiccart" title="Magiccart" sortOrder="10">
+                    <resource id="Magiccart_Shopfranchise::shopfranchise" title="Shop Franchise" sortOrder="10">
+                        <resource id="Magiccart_Shopfranchise::shopfranchise_franchise" title="Franchise" sortOrder="10" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Magiccart_Shopfranchise::config_shopfranchise" title="Shop Franchise" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
 </config>

@@ -10,24 +10,24 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
-class MassStatus extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class MassStatus extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
      */
     public function execute()
     {
-        $shopbrandIds = $this->getRequest()->getParam('shopbrand');
+        $shopfranchiseIds = $this->getRequest()->getParam('shopfranchise');
         $status = $this->getRequest()->getParam('status');
         $storeViewId = $this->getRequest()->getParam('store');
-        if (!is_array($shopbrandIds) || empty($shopbrandIds)) {
-            $this->messageManager->addError(__('Please select Brand(s).'));
+        if (!is_array($shopfranchiseIds) || empty($shopfranchiseIds)) {
+            $this->messageManager->addError(__('Please select Franchise(s).'));
         } else {
-            $collection = $this->_shopbrandCollectionFactory->create()
+            $collection = $this->_shopfranchiseCollectionFactory->create()
                 // ->setStoreViewId($storeViewId)
-                ->addFieldToFilter('shopbrand_id', ['in' => $shopbrandIds]);
+                ->addFieldToFilter('shopfranchise_id', ['in' => $shopfranchiseIds]);
             try {
                 foreach ($collection as $item) {
                     $item->setStoreViewId($storeViewId)
@@ -36,7 +36,7 @@ class MassStatus extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
                         ->save();
                 }
                 $this->messageManager->addSuccess(
-                    __('A total of %1 record(s) have been changed status.', count($shopbrandIds))
+                    __('A total of %1 record(s) have been changed status.', count($shopfranchiseIds))
                 );
             } catch (\Exception $e) {
                 $this->messageManager->addError($e->getMessage());

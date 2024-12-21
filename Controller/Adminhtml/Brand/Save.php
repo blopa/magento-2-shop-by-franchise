@@ -10,11 +10,11 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class Save extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class Save extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
@@ -24,10 +24,10 @@ class Save extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
         $resultRedirect = $this->resultRedirectFactory->create();
 
         if ($data = $this->getRequest()->getPostValue()) {
-            $model = $this->_shopbrandFactory->create();
+            $model = $this->_shopfranchiseFactory->create();
             $storeViewId = $this->getRequest()->getParam('store');
 
-            if ($id = $this->getRequest()->getParam('shopbrand_id')) {
+            if ($id = $this->getRequest()->getParam('shopfranchise_id')) {
                 $model->load($id);
             }
 
@@ -45,7 +45,7 @@ class Save extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
                     /** @var \Magento\Framework\Image\Adapter\AdapterInterface $imageAdapter */
                     $imageAdapter = $this->_objectManager->get('Magento\Framework\Image\AdapterFactory')->create();
 
-                    $uploader->addValidateCallback('brand_image', $imageAdapter, 'validateUploadFile');
+                    $uploader->addValidateCallback('franchise_image', $imageAdapter, 'validateUploadFile');
                     $uploader->setAllowRenameFiles(true);
                     $uploader->setFilesDispersion(true);
 
@@ -53,9 +53,9 @@ class Save extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
                     $mediaDirectory = $this->_objectManager->get('Magento\Framework\Filesystem')
                         ->getDirectoryRead(DirectoryList::MEDIA);
                     $result = $uploader->save(
-                        $mediaDirectory->getAbsolutePath('magiccart/shopbrand/brand/')
+                        $mediaDirectory->getAbsolutePath('magiccart/shopfranchise/franchise/')
                     );
-                    $data['image'] = 'magiccart/shopbrand/brand'.$result['file'];
+                    $data['image'] = 'magiccart/shopfranchise/franchise'.$result['file'];
                 } catch (\Exception $e) {
                     if ($e->getCode() == 0) {
                         $this->messageManager->addError($e->getMessage());
@@ -85,17 +85,17 @@ class Save extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
             try {
                 $model->save();
 
-                $this->messageManager->addSuccess(__('The Brand menu has been saved.'));
+                $this->messageManager->addSuccess(__('The Franchise menu has been saved.'));
                 $this->_getSession()->setFormData(false);
 
                 if ($this->getRequest()->getParam('back') === 'edit') {
                     return $resultRedirect->setPath(
                         '*/*/edit',
                         [
-                            'shopbrand_id' => $model->getId(),
+                            'shopfranchise_id' => $model->getId(),
                             '_current' => true,
                             'store' => $storeViewId,
-                            'current_shopbrand_id' => $this->getRequest()->getParam('current_shopbrand_id'),
+                            'current_shopfranchise_id' => $this->getRequest()->getParam('current_shopfranchise_id'),
                             'saveandclose' => $this->getRequest()->getParam('saveandclose'),
                         ]
                     );
@@ -109,14 +109,14 @@ class Save extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
                 $this->messageManager->addError($e->getMessage());
-                $this->messageManager->addException($e, __('Something went wrong while saving the shopbrand.'));
+                $this->messageManager->addException($e, __('Something went wrong while saving the shopfranchise.'));
             }
 
             $this->_getSession()->setFormData($data);
 
             return $resultRedirect->setPath(
                 '*/*/edit',
-                ['shopbrand_id' => $this->getRequest()->getParam('shopbrand_id')]
+                ['shopfranchise_id' => $this->getRequest()->getParam('shopfranchise_id')]
             );
         }
 

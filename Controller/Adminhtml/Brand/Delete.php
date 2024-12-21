@@ -10,15 +10,15 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
-class Delete extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class Delete extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     public function execute()
     {
-        $id = $this->getRequest()->getParam('shopbrand_id');
+        $id = $this->getRequest()->getParam('shopfranchise_id');
         try {
-            $item = $this->_shopbrandFactory->create()->setId($id);
+            $item = $this->_shopfranchiseFactory->create()->setId($id);
             $item->delete();
             $this->messageManager->addSuccess(
                 __('Delete successfully !')

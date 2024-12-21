@@ -10,19 +10,19 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Adminhtml;
+namespace Magiccart\Shopfranchise\Block\Adminhtml;
 
-class Brand extends \Magento\Backend\Block\Widget\Grid\Container
+class Franchise extends \Magento\Backend\Block\Widget\Grid\Container
 {
     /**
      * Constructor.
      */
     protected function _construct()
     {
-        $this->_controller = 'adminhtml_brand';
-        $this->_blockGroup = 'Magiccart_Shopbrand';
-        $this->_headerText = __('Brand');
-        $this->_addButtonLabel = __('Add New Brand');
+        $this->_controller = 'adminhtml_franchise';
+        $this->_blockGroup = 'Magiccart_Shopfranchise';
+        $this->_headerText = __('Franchise');
+        $this->_addButtonLabel = __('Add New Franchise');
         parent::_construct();
     }
 }

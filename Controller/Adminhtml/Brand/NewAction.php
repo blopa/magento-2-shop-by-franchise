@@ -1,18 +1,18 @@
 <?php
 /**
  * Magiccart 
- * @category 	Magiccart 
- * @copyright 	Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
- * @license 	http://www.magiccart.net/license-agreement.html
+ * @category     Magiccart 
+ * @copyright     Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
+ * @license     http://www.magiccart.net/license-agreement.html
  * @Author: DOng NGuyen<nguyen@dvn.com>
  * @@Create Date: 2016-01-05 10:40:51
  * @@Modify Date: 2016-04-22 16:58:08
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
-class NewAction extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class NewAction extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     public function execute()
     {

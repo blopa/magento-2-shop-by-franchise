@@ -1,15 +1,15 @@
 <?php
 /**
  * Magiccart 
- * @category 	Magiccart 
- * @copyright 	Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
- * @license 	http://www.magiccart.net/license-agreement.html
+ * @category     Magiccart 
+ * @copyright     Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
+ * @license     http://www.magiccart.net/license-agreement.html
  * @Author: DOng NGuyen<nguyen@dvn.com>
  * @@Create Date: 2016-03-04 11:44:03
  * @@Modify Date: 2016-03-24 17:26:49
  * @@Function:
  */
-namespace Magiccart\Shopbrand\Block\Adminhtml\Helper\Renderer\Grid;
+namespace Magiccart\Shopfranchise\Block\Adminhtml\Helper\Renderer\Grid;
 
 class Image extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractRenderer
 {
@@ -21,11 +21,11 @@ class Image extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractR
     protected $_storeManager;
 
     /**
-     * Shopbrand factory.
+     * Shopfranchise factory.
      *
-     * @var \Magestore\Shopbrand\Model\ShopbrandFactory
+     * @var \Magestore\Shopfranchise\Model\ShopfranchiseFactory
      */
-    protected $_shopbrandFactory;
+    protected $_shopfranchiseFactory;
 
     /**
      * [__construct description].
@@ -38,12 +38,12 @@ class Image extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractR
     public function __construct(
         \Magento\Backend\Block\Context $context,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magiccart\Shopbrand\Model\ShopbrandFactory $shopbrandFactory,
+        \Magiccart\Shopfranchise\Model\ShopfranchiseFactory $shopfranchiseFactory,
         array $data = []
     ) {
         parent::__construct($context, $data);
         $this->_storeManager = $storeManager;
-        $this->_shopbrandFactory  = $shopbrandFactory;
+        $this->_shopfranchiseFactory  = $shopfranchiseFactory;
     }
 
     /**
@@ -56,11 +56,11 @@ class Image extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractR
     public function render(\Magento\Framework\DataObject $row)
     {
         $storeViewId = $this->getRequest()->getParam('store');
-        $brand = $this->_shopbrandFactory->create()->setStoreViewId($storeViewId)->load($row->getId());
+        $franchise = $this->_shopfranchiseFactory->create()->setStoreViewId($storeViewId)->load($row->getId());
         $srcImage = $this->_storeManager->getStore()->getBaseUrl(
                 \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
-            ) . $brand->getImage();
+            ) . $franchise->getImage();
 
-        return '<image width="150" height="50" src ="'.$srcImage.'" alt="'.$brand->getImage().'" >';
+        return '<image width="150" height="50" src ="'.$srcImage.'" alt="'.$franchise->getImage().'" >';
     }
 }

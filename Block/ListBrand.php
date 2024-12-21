@@ -1,12 +1,12 @@
 <?php
 
-namespace Magiccart\Shopbrand\Block;
+namespace Magiccart\Shopfranchise\Block;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class ListBrand extends Brand implements \Magento\Framework\DataObject\IdentityInterface
+class ListFranchise extends Franchise implements \Magento\Framework\DataObject\IdentityInterface
 {
-    const DEFAULT_CACHE_TAG = 'MAGICCART_BRAND_LIST';
+    const DEFAULT_CACHE_TAG = 'MAGICCART_FRANCHISE_LIST';
 
     protected function _construct()
     {
@@ -70,19 +70,19 @@ class ListBrand extends Brand implements \Magento\Framework\DataObject\IdentityI
                 'label' => __('Home'),
                 'title' => __('Go to Home Page'),
                 'link'  => $this->_storeManager->getStore()->getBaseUrl()
-            ])->addCrumb('brand', $this->getBreadcrumbsData());
+            ])->addCrumb('franchise', $this->getBreadcrumbsData());
         }
 
         $title = $this->_helper->getConfigModule('general/title');
-        if ($brandId = $this->getRequest()->getParam('id')) {
-            $brand = $this->_shopbrandFactory->create()->load($brandId);
-            $title = $brand->getData('title');
+        if ($franchiseId = $this->getRequest()->getParam('id')) {
+            $franchise = $this->_shopfranchiseFactory->create()->load($franchiseId);
+            $title = $franchise->getData('title');
             $breadcrumbs->addCrumb($title, [
                 'label' => $title,
                 'title' => $title
             ]);
         }
-        if(!$title) $title = __('Brand');
+        if(!$title) $title = __('Franchise');
         $this->pageConfig->getTitle()->set(__($title));
         return parent::_prepareLayout();
     }
@@ -93,18 +93,18 @@ class ListBrand extends Brand implements \Magento\Framework\DataObject\IdentityI
     protected function getBreadcrumbsData()
     {
         $data = [
-            'label' => __('Brand'),
-            'title' => __('Brand')
+            'label' => __('Franchise'),
+            'title' => __('Franchise')
         ];
-        $data['link'] =  $this->_helper->getBrandUrl();
+        $data['link'] =  $this->_helper->getFranchiseUrl();
 
         return $data;
     }
 
-    public function getBrands()
+    public function getFranchises()
     {
         $keyword = $this->getRequest()->getParam('keyword');
-        $collection = $this->getBrandCollection();
+        $collection = $this->getFranchiseCollection();
         if($keyword){
             $collection->addFieldToFilter('title',['like'=>$keyword.'%']);
             $collection->setOrder('title','ASC');
@@ -112,19 +112,19 @@ class ListBrand extends Brand implements \Magento\Framework\DataObject\IdentityI
         return $collection;
     }
 
-    public function getBrand()
+    public function getFranchise()
     {
-        $brandId = $this->getRequest()->getParam('id');
-        if(!$brandId) return;
-        return $this->_shopbrandFactory->create()->load($brandId);
+        $franchiseId = $this->getRequest()->getParam('id');
+        if(!$franchiseId) return;
+        return $this->_shopfranchiseFactory->create()->load($franchiseId);
     }
 
     /**
      * @return number
      */    
-    public function getProductCount(\Magiccart\Shopbrand\Model\Shopbrand $brand)
+    public function getProductCount(\Magiccart\Shopfranchise\Model\Shopfranchise $franchise)
     {
-        $collection = $brand->getProductCollection();
+        $collection = $franchise->getProductCollection();
         return $collection->count();
     }
 }

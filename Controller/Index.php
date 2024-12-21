@@ -11,16 +11,16 @@
  */
 
 
-namespace Magiccart\Shopbrand\Controller;
+namespace Magiccart\Shopfranchise\Controller;
 
 abstract class Index extends \Magento\Framework\App\Action\Action
 {
     /**
      * Magicproduct factory.
      *
-     * @var \Magiccart\Shopbrand\Model\ShopbrandFactory
+     * @var \Magiccart\Shopfranchise\Model\ShopfranchiseFactory
      */
-    protected $_shopbrandFactory;
+    protected $_shopfranchiseFactory;
 
     protected $_resultPageFactory;
 

@@ -1,11 +1,11 @@
 <?php
-namespace Magiccart\Shopbrand\Block;
+namespace Magiccart\Shopfranchise\Block;
 
-class Sidebar extends Brand
+class Sidebar extends Franchise
 {
-    public function getBrands()
+    public function getFranchises()
     {
-        $collection = $this->getBrandCollection();
+        $collection = $this->getFranchiseCollection();
         $collection->setOrder("'order'", 'ASC');
         // $collection->setOrder('title','ASC');
         return $collection;

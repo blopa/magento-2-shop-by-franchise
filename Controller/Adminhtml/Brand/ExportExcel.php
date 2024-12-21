@@ -10,19 +10,19 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class ExportExcel extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class ExportExcel extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     public function execute()
     {
-        $fileName = 'brands.xls';
+        $fileName = 'franchises.xls';
 
         /** @var \\Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->_resultPageFactory->create();
-        $content = $resultPage->getLayout()->createBlock('Magiccart\Shopbrand\Block\Adminhtml\Brand\Grid')->getExcel();
+        $content = $resultPage->getLayout()->createBlock('Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Grid')->getExcel();
 
         return $this->_fileFactory->create($fileName, $content, DirectoryList::VAR_DIR);
     }

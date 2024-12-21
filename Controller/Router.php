@@ -1,24 +1,24 @@
 <?php
 
-namespace Magiccart\Shopbrand\Controller;
+namespace Magiccart\Shopfranchise\Controller;
 
 class Router implements \Magento\Framework\App\RouterInterface
 {
     protected $actionFactory;
-    protected $_brand;
+    protected $_franchise;
     protected $helper;
     protected $_response;
 
     public function __construct(
         \Magento\Framework\App\ActionFactory $actionFactory,
         \Magento\Framework\App\ResponseInterface $response,
-        \Magiccart\Shopbrand\Model\ShopbrandFactory $brand,
-        \Magiccart\Shopbrand\Helper\Data $helper
+        \Magiccart\Shopfranchise\Model\ShopfranchiseFactory $franchise,
+        \Magiccart\Shopfranchise\Helper\Data $helper
     )
     {
         $this->actionFactory = $actionFactory;
         $this->_response = $response;
-        $this->_brand = $brand;
+        $this->_franchise = $franchise;
         $this->helper = $helper;
     }
 
@@ -38,10 +38,10 @@ class Router implements \Magento\Framework\App\RouterInterface
         $routeSize = sizeof($routePath); //den count //
 
         if ($identifier == $router) {
-            $request->setModuleName('shopbrand')
-                    ->setControllerName('brand')
-                    ->setActionName('listbrand')
-                    ->setPathInfo('/shopbrand/brand/listbrand');
+            $request->setModuleName('shopfranchise')
+                    ->setControllerName('franchise')
+                    ->setActionName('listfranchise')
+                    ->setPathInfo('/shopfranchise/franchise/listfranchise');
             return $this->actionFactory->create('Magento\Framework\App\Action\Forward');
 
         } elseif ($routeSize >= 2 && $routePath[0] == $router) {
@@ -50,17 +50,17 @@ class Router implements \Magento\Framework\App\RouterInterface
                 if($key == 0 ) continue;
                 $url_key .= ($key == 1) ?  $value : "/".$value;
             }
-            $model = $this->_brand->create();
-            $brandLoad = $model->load($url_key, 'urlkey');
+            $model = $this->_franchise->create();
+            $franchiseLoad = $model->load($url_key, 'urlkey');
 
-            if (!empty($brandLoad)) {
-                $id = $brandLoad->getData('shopbrand_id');
+            if (!empty($franchiseLoad)) {
+                $id = $franchiseLoad->getData('shopfranchise_id');
                 if($id){
-                    $request->setModuleName('shopbrand')
-                        ->setControllerName('brand')
+                    $request->setModuleName('shopfranchise')
+                        ->setControllerName('franchise')
                         ->setActionName('view')
                         ->setParam('id', $id)
-                        ->setPathInfo('/shopbrand/brand/view');
+                        ->setPathInfo('/shopfranchise/franchise/view');
                     return $this->actionFactory->create('Magento\Framework\App\Action\Forward');
                 }
             }

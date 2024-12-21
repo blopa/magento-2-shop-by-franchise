@@ -10,7 +10,7 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Block\Adminhtml\Franchise;
 
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
@@ -20,16 +20,16 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      */
     protected function _construct()
     {
-        $this->_objectId = 'shopbrand_id';
-        $this->_blockGroup = 'Magiccart_Shopbrand';
-        $this->_controller = 'adminhtml_brand';
+        $this->_objectId = 'shopfranchise_id';
+        $this->_blockGroup = 'Magiccart_Shopfranchise';
+        $this->_controller = 'adminhtml_franchise';
 
         parent::_construct();
 
-        $this->buttonList->update('save', 'label', __('Save Brand'));
+        $this->buttonList->update('save', 'label', __('Save Franchise'));
         $this->buttonList->update('delete', 'label', __('Delete'));
 
-        if ($this->getRequest()->getParam('current_shopbrand_id')) {
+        if ($this->getRequest()->getParam('current_shopfranchise_id')) {
             $this->buttonList->remove('save');
             $this->buttonList->remove('delete');
 
@@ -64,29 +64,29 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
             );
 
             $this->_formScripts[] = "
-				require(['jquery'], function($){
-					$(document).ready(function(){
-						var input = $('<input class=\"custom-button-submit\" type=\"submit\" hidden=\"true\" />');
-						$(edit_form).append(input);
+                require(['jquery'], function($){
+                    $(document).ready(function(){
+                        var input = $('<input class=\"custom-button-submit\" type=\"submit\" hidden=\"true\" />');
+                        $(edit_form).append(input);
 
-						window.customsaveAndContinueEdit = function (){
-							edit_form.action = '".$this->getSaveAndContinueUrl()."';
-							$('.custom-button-submit').trigger('click');
+                        window.customsaveAndContinueEdit = function (){
+                            edit_form.action = '".$this->getSaveAndContinueUrl()."';
+                            $('.custom-button-submit').trigger('click');
 
-				        }
+                        }
 
-			    		window.saveAndCloseWindow = function (){
-			    			edit_form.action = '".$this->getSaveAndCloseWindowUrl()."';
-							$('.custom-button-submit').trigger('click');
-			            }
-					});
-				});
-			";
+                        window.saveAndCloseWindow = function (){
+                            edit_form.action = '".$this->getSaveAndCloseWindowUrl()."';
+                            $('.custom-button-submit').trigger('click');
+                        }
+                    });
+                });
+            ";
 
-            if ($shopbrandId = $this->getRequest()->getParam('shopbrand_id')) {
+            if ($shopfranchiseId = $this->getRequest()->getParam('shopfranchise_id')) {
                 $this->_formScripts[] = '
-					window.shopbrand_id = '.$shopbrandId.';
-				';
+                    window.shopfranchise_id = '.$shopfranchiseId.';
+                ';
             }
         } else {
             $this->buttonList->add(
@@ -123,8 +123,8 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
                 'back' => 'edit',
                 'tab' => '{{tab_id}}',
                 'store' => $this->getRequest()->getParam('store'),
-                'shopbrand_id' => $this->getRequest()->getParam('shopbrand_id'),
-                'current_shopbrand_id' => $this->getRequest()->getParam('current_shopbrand_id'),
+                'shopfranchise_id' => $this->getRequest()->getParam('shopfranchise_id'),
+                'current_shopfranchise_id' => $this->getRequest()->getParam('current_shopfranchise_id'),
             ]
         );
     }
@@ -143,8 +143,8 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
                 'back' => 'edit',
                 'tab' => '{{tab_id}}',
                 'store' => $this->getRequest()->getParam('store'),
-                'shopbrand_id' => $this->getRequest()->getParam('shopbrand_id'),
-                'current_shopbrand_id' => $this->getRequest()->getParam('current_shopbrand_id'),
+                'shopfranchise_id' => $this->getRequest()->getParam('shopfranchise_id'),
+                'current_shopfranchise_id' => $this->getRequest()->getParam('current_shopfranchise_id'),
                 'saveandclose' => 1,
             ]
         );

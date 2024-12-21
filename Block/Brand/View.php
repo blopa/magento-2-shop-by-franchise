@@ -1,17 +1,17 @@
 <?php
 
-namespace Magiccart\Shopbrand\Block\Brand;
+namespace Magiccart\Shopfranchise\Block\Franchise;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class View extends \Magiccart\Shopbrand\Block\Brand implements \Magento\Framework\DataObject\IdentityInterface
+class View extends \Magiccart\Shopfranchise\Block\Franchise implements \Magento\Framework\DataObject\IdentityInterface
 {
 
-    const DEFAULT_CACHE_TAG = 'MAGICCART_BRAND_VIEW';
+    const DEFAULT_CACHE_TAG = 'MAGICCART_FRANCHISE_VIEW';
 
     protected $_filterProvider;
 
-    protected $_brand;
+    protected $_franchise;
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
@@ -21,15 +21,15 @@ class View extends \Magiccart\Shopbrand\Block\Brand implements \Magento\Framewor
         \Magento\Catalog\Model\ProductFactory $product,
         \Magento\Catalog\Model\Product\Visibility $catalogProductVisibility,
         \Magento\Cms\Model\Template\FilterProvider $filterProvider,
-        \Magiccart\Shopbrand\Model\ShopbrandFactory $shopbrandFactory,
-        \Magiccart\Shopbrand\Helper\Data $helper,
+        \Magiccart\Shopfranchise\Model\ShopfranchiseFactory $shopfranchiseFactory,
+        \Magiccart\Shopfranchise\Helper\Data $helper,
         array $data = []
 
     )
     {
         $this->_filterProvider = $filterProvider;
 
-        parent::__construct($context, $imageFactory, $backendUrl, $shopbrandFactory, $helper, $data);
+        parent::__construct($context, $imageFactory, $backendUrl, $shopfranchiseFactory, $helper, $data);
     }
 
     protected function _construct()
@@ -94,12 +94,12 @@ class View extends \Magiccart\Shopbrand\Block\Brand implements \Magento\Framewor
                 'label' => __('Home'),
                 'title' => __('Go to Home Page'),
                 'link'  => $this->_storeManager->getStore()->getBaseUrl()
-            ])->addCrumb('brand', $this->getBreadcrumbsData());
+            ])->addCrumb('franchise', $this->getBreadcrumbsData());
         }
 
-        if ($brandId = $this->getRequest()->getParam('id')) {
-            $brand = $this->_shopbrandFactory->create()->load($brandId);
-            $title = $brand->getData('title');
+        if ($franchiseId = $this->getRequest()->getParam('id')) {
+            $franchise = $this->_shopfranchiseFactory->create()->load($franchiseId);
+            $title = $franchise->getData('title');
             $breadcrumbs->addCrumb($title, [
                 'label' => $title,
                 'title' => $title
@@ -115,27 +115,27 @@ class View extends \Magiccart\Shopbrand\Block\Brand implements \Magento\Framewor
     protected function getBreadcrumbsData()
     {
         $data = [
-            'label' => __('Brand'),
-            'title' => __('Brand')
+            'label' => __('Franchise'),
+            'title' => __('Franchise')
         ];
-        $data['link'] =  $this->_helper->getBrandUrl();
+        $data['link'] =  $this->_helper->getFranchiseUrl();
 
         return $data;
     }
 
-    public function getBrand()
+    public function getFranchise()
     {
-        if($this->_brand) return $this->_brand;
-        $brandId = $this->getRequest()->getParam('id');
-        if(!$brandId) return;
-        $this->_brand = $this->_shopbrandFactory->create()->load($brandId);
-        return $this->_brand;
+        if($this->_franchise) return $this->_franchise;
+        $franchiseId = $this->getRequest()->getParam('id');
+        if(!$franchiseId) return;
+        $this->_franchise = $this->_shopfranchiseFactory->create()->load($franchiseId);
+        return $this->_franchise;
     }
 
     public function getDescription()
     {
-        $brand = $this->getBrand();
-        $description =  $brand->getDescription();
+        $franchise = $this->getFranchise();
+        $description =  $franchise->getDescription();
         if($description){
             $storeId = $this->_storeManager->getStore()->getStoreId();
             return $this->_filterProvider->getBlockFilter()->setStoreId($storeId)->filter($description);
@@ -145,9 +145,9 @@ class View extends \Magiccart\Shopbrand\Block\Brand implements \Magento\Framewor
     /**
      * @return number
      */    
-    public function getProductCount(\Magiccart\Shopbrand\Model\Shopbrand $brand)
+    public function getProductCount(\Magiccart\Shopfranchise\Model\Shopfranchise $franchise)
     {
-        $collection = $brand->getProductCollection();
+        $collection = $franchise->getProductCollection();
         return $collection->count();
     }
 }

@@ -1,16 +1,16 @@
 <?php
-$brand = $block->getBrand();
-if(!$brand) return;
+$franchise = $block->getFranchise();
+if(!$franchise) return;
 $helper =  $this->_helper;
-$image = $brand->getImage();
+$image = $franchise->getImage();
 $description = $this->getDescription();
 ?>
-<h1 class="title"><?php echo $brand->getTitle(); ?></h1>
+<h1 class="title"><?php echo $franchise->getTitle(); ?></h1>
 <?php if($image) : ?>
-<div class="brand-view">
+<div class="franchise-view">
     <div class="image">
-        <img class="img-responsive" src="<?= $helper->getMediaUrl($image) ?>" alt="<?= $brand->getTitle(); ?>"/>
+        <img class="img-responsive" src="<?= $helper->getMediaUrl($image) ?>" alt="<?= $franchise->getTitle(); ?>"/>
     </div>
     <?php endif; ?>
-    <?php echo $description ? '<div class="brand-description">' . $description . '</div>' : ''; ?>
+    <?php echo $description ? '<div class="franchise-description">' . $description . '</div>' : ''; ?>
 </div>

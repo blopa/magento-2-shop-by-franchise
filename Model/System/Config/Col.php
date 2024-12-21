@@ -10,7 +10,7 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Model\System\Config;
+namespace Magiccart\Shopfranchise\Model\System\Config;
 
 class Col implements \Magento\Framework\Option\ArrayInterface
 {

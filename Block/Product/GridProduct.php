@@ -10,7 +10,7 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Block\Product;
+namespace Magiccart\Shopfranchise\Block\Product;
 
 class GridProduct extends \Magento\Catalog\Block\Product\AbstractProduct
 {
@@ -84,7 +84,7 @@ class GridProduct extends \Magento\Catalog\Block\Product\AbstractProduct
 
         $this->_limit = $this->getWidgetCfg('limit');
         $type = $this->getTypeFilter(); // $this->getActivated();
-        $collection = $this->getBrandProducts($type);
+        $collection = $this->getFranchiseProducts($type);
         $this->_eventManager->dispatch(
             'catalog_block_product_list_collection',
             ['collection' => $collection]
@@ -94,12 +94,12 @@ class GridProduct extends \Magento\Catalog\Block\Product\AbstractProduct
     }
 
 
-    public function getBrandProducts($brand)
+    public function getFranchiseProducts($franchise)
     {
 
         $collection = $this->_productCollectionFactory->create();
         $collection->setVisibility($this->_catalogProductVisibility->getVisibleInCatalogIds());
-        $collection->addAttributeToFilter('manufacturer', $brand)
+        $collection->addAttributeToFilter('franchise', $franchise)
                     ->addStoreFilter()
                     ->addAttributeToSelect('*')
                     ->addMinimalPrice()

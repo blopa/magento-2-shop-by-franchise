@@ -11,12 +11,12 @@
  */ -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <title>Brand</title>
+        <title>Franchise</title>
     </head>
     <body>
         <referenceBlock name="menu">
             <action method="setActive">
-                <argument name="itemId" xsi:type="string">Magiccart_Shopbrand::shopbrand</argument>
+                <argument name="itemId" xsi:type="string">Magiccart_Shopfranchise::shopfranchise</argument>
             </action>
         </referenceBlock>
         <referenceContainer name="page.main.actions">
@@ -27,20 +27,20 @@
             </block>
         </referenceContainer>
         <referenceContainer name="content">
-        <block class="Magiccart\Shopbrand\Block\Adminhtml\Brand\Edit" name="brand_edit"/>
+        <block class="Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Edit" name="franchise_edit"/>
         </referenceContainer>
         <referenceContainer name="left">
-        <block class="Magiccart\Shopbrand\Block\Adminhtml\Brand\Edit\Tabs" name="brand_edit_tabs">
-            <block class="Magiccart\Shopbrand\Block\Adminhtml\Brand\Edit\Tab\Form" name="brand_edit_tab_form"/>
+        <block class="Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Edit\Tabs" name="franchise_edit_tabs">
+            <block class="Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Edit\Tab\Form" name="franchise_edit_tab_form"/>
             <action method="addTab">
                 <argument name="name" xsi:type="string">main_section</argument>
-                <argument name="block" xsi:type="string">brand_edit_tab_form</argument>
+                <argument name="block" xsi:type="string">franchise_edit_tab_form</argument>
             </action>
 
-<!--             <block class="Magiccart\Shopbrand\Block\Adminhtml\Brand\Edit\Tab\RelatedProducts.php" name="shopbrand_edit_tab_relatedproducts"/>
+<!--             <block class="Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Edit\Tab\RelatedProducts.php" name="shopfranchise_edit_tab_relatedproducts"/>
             <action method="addTab">
                 <argument name="name" xsi:type="string">relatedproducts_section</argument>
-                <argument name="block" xsi:type="string">shopbrand_edit_tab_relatedproducts</argument>
+                <argument name="block" xsi:type="string">shopfranchise_edit_tab_relatedproducts</argument>
             </action> -->
         </block>
         </referenceContainer>

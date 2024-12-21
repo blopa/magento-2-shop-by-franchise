@@ -10,19 +10,19 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class ExportXml extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class ExportXml extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     public function execute()
     {
-        $fileName = 'brands.xml';
+        $fileName = 'franchises.xml';
 
         /** @var \\Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->_resultPageFactory->create();
-        $content = $resultPage->getLayout()->createBlock('Magiccart\Shopbrand\Block\Adminhtml\Brand\Grid')->getXml();
+        $content = $resultPage->getLayout()->createBlock('Magiccart\Shopfranchise\Block\Adminhtml\Franchise\Grid')->getXml();
 
         return $this->_fileFactory->create($fileName, $content, DirectoryList::VAR_DIR);
     }

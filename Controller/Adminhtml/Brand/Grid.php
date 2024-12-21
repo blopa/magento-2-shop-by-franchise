@@ -10,9 +10,9 @@
  * @@Function:
  */
 
-namespace Magiccart\Shopbrand\Controller\Adminhtml\Brand;
+namespace Magiccart\Shopfranchise\Controller\Adminhtml\Franchise;
 
-class Grid extends \Magiccart\Shopbrand\Controller\Adminhtml\Action
+class Grid extends \Magiccart\Shopfranchise\Controller\Adminhtml\Action
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory

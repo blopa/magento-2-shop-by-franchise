@@ -11,10 +11,10 @@
  */ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-    	<update id="magiccart" title="Magiccart" module="Magiccart_Shopbrand" sortOrder="10" resource="Magiccart_Shopbrand::magiccart"/>
+        <update id="magiccart" title="Magiccart" module="Magiccart_Shopfranchise" sortOrder="10" resource="Magiccart_Shopfranchise::magiccart"/>
 
-	        <add id="Magiccart_Shopbrand::shopbrand" title="Shop Brand" module="Magiccart_Shopbrand" sortOrder="10" parent="magiccart" resource="Magiccart_Shopbrand::shopbrand"/>
+            <add id="Magiccart_Shopfranchise::shopfranchise" title="Shop Franchise" module="Magiccart_Shopfranchise" sortOrder="10" parent="magiccart" resource="Magiccart_Shopfranchise::shopfranchise"/>
 
-				<add id="Magiccart_Shopbrand::shopbrand_brand" title="Brand" module="Magiccart_Shopbrand" sortOrder="10" parent="Magiccart_Shopbrand::shopbrand" action="shopbrand/brand" resource="Magiccart_Shopbrand::shopbrand_brand"/>
+                <add id="Magiccart_Shopfranchise::shopfranchise_franchise" title="Franchise" module="Magiccart_Shopfranchise" sortOrder="10" parent="Magiccart_Shopfranchise::shopfranchise" action="shopfranchise/franchise" resource="Magiccart_Shopfranchise::shopfranchise_franchise"/>
     </menu>
 </config>

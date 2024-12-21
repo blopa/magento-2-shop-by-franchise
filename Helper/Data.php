@@ -6,7 +6,7 @@
  * @Last Modified time: 2021-03-24 14:29:26
  */
 
-namespace Magiccart\Shopbrand\Helper;
+namespace Magiccart\Shopfranchise\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
@@ -94,7 +94,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getRouter()
     {
         $router = $this->getConfigModule('general/router');
-        return $router ? $router : 'shopbrand';
+        return $router ? $router : 'shopfranchise';
     }
 
     public function getUrlSuffix()
@@ -121,35 +121,35 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $this->getRouter() . $key;
     }
 
-    public function getBrandUrl($key='', $suffix=true)
+    public function getFranchiseUrl($key='', $suffix=true)
     {
         if (filter_var($key, FILTER_VALIDATE_URL)) return $key;
         return $this->_storeManager->getStore()->getBaseUrl() . $this->getUrlKey($key, $suffix);
     }
 
-    public function getLinkBrand($brand)
+    public function getLinkFranchise($franchise)
     {
         $typeLink = $this->getConfigModule('general/link');
         $baseUrl  = $this->_storeManager->getStore()->getBaseUrl();
         $attributeCode = $this->getConfigModule('general/attributeCode');
         $link = '#';
         if(!$typeLink){
-            $key  = $brand->getUrlkey();
+            $key  = $franchise->getUrlkey();
             if (filter_var($key, FILTER_VALIDATE_URL)){
                 $link = $key;
             } else {
                 $link = $key ? $baseUrl . $this->getUrlKey($key) : '#';
             }
-        } elseif($typeLink == '2' && $brand->getOptionId()){
-            $link = $baseUrl . 'catalogsearch/advanced/result/?' . $attributeCode . urlencode('[]') . '=' . $brand->getOptionId();
+        } elseif($typeLink == '2' && $franchise->getOptionId()){
+            $link = $baseUrl . 'catalogsearch/advanced/result/?' . $attributeCode . urlencode('[]') . '=' . $franchise->getOptionId();
         } elseif($typeLink == '1') {
             $attr = $this->getAttribute();
             if($attr->usesSource()){
-                $option  = $attr->getSource()->getOptionText($brand->getOptionId());
+                $option  = $attr->getSource()->getOptionText($franchise->getOptionId());
                 $link = $baseUrl . 'catalogsearch/result/?q=' .$option; 
             }
         } else {
-            $link = $brand->getUrlkey();
+            $link = $franchise->getUrlkey();
         }
 
         return $link;

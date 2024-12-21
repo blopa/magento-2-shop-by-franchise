@@ -8,7 +8,7 @@
  * Used in creating options for Yes|No config value selection
  *
  */
-namespace Magiccart\Shopbrand\Model\System\Config;
+namespace Magiccart\Shopfranchise\Model\System\Config;
 
 class Truefalse implements \Magento\Framework\Option\ArrayInterface
 {
