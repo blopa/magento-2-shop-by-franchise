@@ -4,7 +4,7 @@
 ## This is originally the shopbrand extension of Magepow, I have just changed the name to shopfranchise so both of them could be installed together. I am not the original author of this extension. I have just changed the name of the extension to shopfranchise. No features have been added or removed.
 
 ## Magento 2 Shop by Franchise
-Magento 2 Shop by Franchise by Magepow is an extension that helps you build a franchiseed summary page of the products in your store. Allows you to sell by franchise, customers can easily shop by the franchise they like.
+Magento 2 Shop by Franchise by Magepow is an extension that helps you build a franchised summary page of the products in your store. Allows you to sell by franchise, customers can easily shop by the franchise they like.
 ### Description
 Your online store is selling many products from different franchises. You want to build a page to introduce and synthesize these franchises, want to sell by franchise so that customers can easily find and shop products by their favorite franchise, Magento 2 Shop by Franchise Our extension will help you make this a reality.
 ### Highlight Features
@@ -18,7 +18,7 @@ Franchise List Page helps customers shop by franchise easily when it includes:
 #### 2. Show franchise logo in product page
 Display the franchise logo in the specified product page, helping your customers to know which franchise your product comes from.
 Magento 2 Shop by Franchise supports all types of products: simple, downloadable, configurable, virtual, bundle, gift card.
-Available products can be easily franchiseed in the product edit page.
+Available products can be easily franchised in the product edit page.
 
 ![Magento 2 Shop by Franchise](https://github.com/magepow/magento-2-shop-by-franchise/blob/master/media/shop-by-franchise-2.png)
 #### 3. Add The Franchise Widget
